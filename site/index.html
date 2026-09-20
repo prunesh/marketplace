@@ -24,14 +24,11 @@
     <div class="frame">
       <header class="nav">
         <a class="wordmark" href="./">
-          <svg class="wordmark-mark" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="16" cy="8" r="3.4" fill="currentColor" />
-            <circle cx="7" cy="24" r="3.4" fill="var(--ink-paper)" />
-            <circle cx="25" cy="24" r="3.4" fill="var(--ink-paper)" />
-            <line x1="16" y1="8" x2="7" y2="24" />
-            <line x1="16" y1="8" x2="25" y2="24" />
-            <line x1="16" y1="11.4" x2="16" y2="20" />
-            <circle cx="16" cy="22" r="2.4" fill="var(--ink-paper)" />
+          <svg class="wordmark-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect x="5" y="6" width="22" height="3.2" fill="currentColor" />
+            <rect x="5" y="12" width="15" height="3.2" fill="currentColor" />
+            <rect x="5" y="18" width="10" height="3.2" fill="currentColor" />
+            <rect x="5" y="24" width="5" height="3.2" fill="currentColor" />
           </svg>
           prunesh
         </a>
@@ -40,10 +37,6 @@
           <a class="opt" href="#architecture">Architecture</a>
           <a href="https://github.com/prunesh/prunesh-core#readme">Docs</a>
           <a href="https://github.com/prunesh/prunesh-core">GitHub</a>
-          <a class="star" href="https://github.com/prunesh/prunesh-core/stargazers" id="star-link">
-            <span class="star-glyph" aria-hidden="true">★</span
-            ><span id="star-count">…</span>
-          </a>
         </nav>
       </header>
 
@@ -88,6 +81,19 @@
               <rect x="420" y="122" width="80" height="2" />
               <rect x="420" y="138" width="48" height="2" />
               <rect x="420" y="154" width="70" height="2" />
+              <rect x="420" y="170" width="42" height="2" />
+              <rect x="420" y="186" width="76" height="2" />
+              <rect x="420" y="202" width="50" height="2" />
+              <rect x="420" y="218" width="62" height="2" />
+              <rect x="420" y="234" width="38" height="2" />
+              <rect x="420" y="250" width="68" height="2" />
+              <rect x="420" y="266" width="44" height="2" />
+              <rect x="420" y="282" width="58" height="2" />
+              <rect x="420" y="298" width="36" height="2" />
+              <rect x="420" y="314" width="74" height="2" />
+              <rect x="420" y="330" width="46" height="2" />
+              <rect x="420" y="346" width="60" height="2" />
+              <rect x="420" y="362" width="40" height="2" />
             </g>
           </svg>
           <div class="hero-copy">
@@ -432,23 +438,6 @@
           }
         });
       });
-
-      (async () => {
-        try {
-          const r = await fetch('https://api.github.com/repos/prunesh/prunesh-core', {
-            headers: { Accept: 'application/vnd.github+json' },
-          });
-          if (!r.ok) return;
-          const d = await r.json();
-          const n = d.stargazers_count;
-          if (typeof n === 'number') {
-            document.getElementById('star-count').textContent =
-              n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n);
-          }
-        } catch {
-          document.getElementById('star-count').textContent = '';
-        }
-      })();
     </script>
 
     <style>
@@ -564,26 +553,9 @@
         font-size: 0.98rem;
       }
 
-      .nav-links a:not(.star):hover {
+      .nav-links a:hover {
         text-decoration: underline;
         text-underline-offset: 4px;
-      }
-
-      .star {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        border: 1px solid var(--ink-rule);
-        padding: 0.4rem 0.85rem;
-        font-variant-numeric: tabular-nums;
-      }
-
-      .star:hover {
-        background: var(--ink-paper-press);
-      }
-
-      .star-glyph {
-        font-size: 0.85em;
       }
 
       .hero {
@@ -601,12 +573,14 @@
         height: 100%;
         pointer-events: none;
         color: var(--ink);
-        opacity: 0.14;
+        opacity: 0.22;
         z-index: 0;
       }
 
       .hero-prune rect {
         fill: currentColor;
+        transform-box: fill-box;
+        transform-origin: left center;
       }
 
       .hero-prune-label {
@@ -1015,20 +989,63 @@
           to { opacity: 1; transform: none; filter: blur(0); }
         }
 
-        .hero-prune-raw rect {
-          animation: bar-raw 5s ease-in-out infinite;
+        .hero-prune-raw {
+          animation: prune-drift-a 18s ease-in-out infinite alternate;
         }
-        .hero-prune-cut rect {
-          animation: bar-cut 5s ease-in-out infinite;
+        .hero-prune-cut {
+          animation: prune-drift-b 22s ease-in-out infinite alternate;
+        }
+        .hero-prune-label {
+          animation: prune-label 9s ease-in-out infinite alternate;
         }
 
+        .hero-prune-raw rect {
+          animation: bar-raw 4.6s ease-in-out infinite;
+        }
+        .hero-prune-raw rect:nth-child(3n) {
+          animation-duration: 3.7s;
+          animation-delay: -0.5s;
+        }
+        .hero-prune-raw rect:nth-child(3n + 1) {
+          animation-duration: 5.8s;
+          animation-delay: -2.2s;
+        }
+        .hero-prune-raw rect:nth-child(3n + 2) {
+          animation-duration: 6.5s;
+          animation-delay: -3.6s;
+        }
+
+        .hero-prune-cut rect {
+          animation: bar-cut 5.4s ease-in-out infinite;
+        }
+        .hero-prune-cut rect:nth-child(even) {
+          animation-duration: 4.2s;
+          animation-delay: -1.4s;
+        }
+        .hero-prune-cut rect:nth-child(3n) {
+          animation-duration: 7s;
+          animation-delay: -2.8s;
+        }
+
+        @keyframes prune-drift-a {
+          from { transform: translate(0, 0); }
+          to { transform: translate(12px, -14px); }
+        }
+        @keyframes prune-drift-b {
+          from { transform: translate(0, 0); }
+          to { transform: translate(-10px, 12px); }
+        }
+        @keyframes prune-label {
+          from { opacity: 0.4; transform: translateY(0); }
+          to { opacity: 0.95; transform: translateY(-7px); }
+        }
         @keyframes bar-raw {
-          0%, 100% { opacity: 0.45; }
-          50% { opacity: 0.9; }
+          0%, 100% { transform: scaleX(0.58); opacity: 0.35; }
+          50% { transform: scaleX(1); opacity: 0.95; }
         }
         @keyframes bar-cut {
-          0%, 100% { opacity: 0.7; }
-          50% { opacity: 1; }
+          0%, 100% { transform: scaleX(0.55); opacity: 0.4; }
+          50% { transform: scaleX(1); opacity: 1; }
         }
 
         .d-agents, .d-iface { opacity: 0; animation: ink-fade 0.5s ease 0.4s forwards; }
@@ -1059,8 +1076,7 @@
           font-size: 0.85rem;
         }
 
-        .nav-links .opt,
-        .star {
+        .nav-links .opt {
           display: none;
         }
 
