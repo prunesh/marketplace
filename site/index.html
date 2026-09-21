@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <title>prunesh marketplace — Plugin registry</title>
+    <title>prunesh plugins — Community plugin catalog</title>
     <meta
       name="description"
-      content="Official plugin registry for prunesh. Browse modules, install them with one command, or publish your own. Same stdin/v1 contract as built-in filters."
+      content="Community plugins for prunesh. Browse available plugins and install them directly from GitHub."
     />
-    <meta property="og:title" content="prunesh marketplace" />
-    <meta property="og:description" content="Browse, install, and publish prunesh plugins." />
+    <meta property="og:title" content="prunesh plugins" />
+    <meta property="og:description" content="Community plugins for prunesh. Install from GitHub." />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#f5f0e8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,11 +31,11 @@
             <rect x="5" y="24" width="5" height="3.2" fill="currentColor" />
           </svg>
           prunesh
-          <span class="wordmark-sub">marketplace</span>
+          <span class="wordmark-sub">plugins</span>
         </a>
         <nav class="nav-links">
           <a href="#catalog">Catalog</a>
-          <a class="opt" href="#publish">Publish</a>
+          <a href="#install">How to install</a>
           <a href="https://prunesh.github.io/prunesh">prunesh</a>
           <a href="https://github.com/prunesh/marketplace">GitHub</a>
         </nav>
@@ -44,18 +44,19 @@
       <main>
         <section class="hero">
           <div class="hero-copy">
-            <p class="hero-tag">Official plugin registry</p>
-            <h1>Browse, install, publish</h1>
+            <p class="hero-tag">Community plugin catalog</p>
+            <h1>Extend prunesh from GitHub</h1>
             <p class="lede">
               Community plugins for prunesh. Same <code>stdin/v1</code> contract as
-              built-in modules. Install by id — no fork of core required.
+              built-in modules. Install any plugin directly from its GitHub release — no
+              registry, no middleman.
             </p>
             <div class="cta">
               <a class="btn btn-primary" href="#catalog">Browse catalog</a>
-              <a class="btn btn-ghost" href="#publish">Publish a plugin</a>
+              <a class="btn btn-ghost" href="#install">How to install</a>
             </div>
-            <div class="install" data-install="prunesh plugin install prunesh/date">
-              <code>prunesh plugin install prunesh/date</code>
+            <div class="install" data-install="prunesh plugin install github.com/prunesh/prunesh-gh@v1.0.0">
+              <code>prunesh plugin install github.com/prunesh/prunesh-gh@v1.0.0</code>
               <button class="copy" type="button" aria-label="Copy install command">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
                   <rect x="9" y="9" width="11" height="11" />
@@ -72,122 +73,182 @@
 
         <section class="catalog" id="catalog" aria-labelledby="catalog-title">
           <header class="block-head">
-            <h2 id="catalog-title">Marketplace catalog</h2>
+            <h2 id="catalog-title">Plugin catalog</h2>
             <p>
-              Install by plugin id. Latest version is the default; pin with
-              <code>@vX.Y.Z</code>. Anyone can publish — the contract probe is the gate.
+              Install with <code>prunesh plugin install github.com/&lt;user&gt;/&lt;repo&gt;@&lt;version&gt;</code>.
+              Pin a specific version or use the latest release tag from the plugin's GitHub page.
             </p>
           </header>
-          <div id="catalog-body" class="catalog-body">
-            <p class="catalog-status">Loading registry…</p>
-          </div>
-        </section>
-
-        <section class="publish" id="publish" aria-labelledby="publish-title">
-          <header class="block-head">
-            <h2 id="publish-title">Publish your own plugin</h2>
-            <p>
-              No pull request. No shared tokens. A GitHub release with a valid
-              <code>stdin/v1</code> binary registers the plugin automatically.
-            </p>
-          </header>
-
-          <div class="publish-steps">
-            <article>
-              <p class="step-n">01 · Contract</p>
-              <h3>Ship stdin/v1</h3>
-              <p>
-                Implement rewrite and filter_output over JSON stdin/stdout.
-                Release must include <code>prunesh.json</code> and binaries named
-                <code>&lt;command&gt;-&lt;os&gt;-&lt;arch&gt;</code>.
-              </p>
-            </article>
-            <article>
-              <p class="step-n">02 · Workflow</p>
-              <h3>Copy the template</h3>
-              <p>
-                Add
-                <a href="https://github.com/prunesh/marketplace/blob/main/templates/publish.yml">templates/publish.yml</a>
-                to your plugin repo. Set <code>plugin_id</code> to
-                <code>author/command</code>.
-              </p>
-            </article>
-            <article>
-              <p class="step-n">03 · Release</p>
-              <h3>Tag and publish</h3>
-              <p>
-                Create a GitHub release (<code>v1.0.0</code>). OIDC authenticates
-                the worker. If the contract probe passes, the plugin is live
-                within minutes.
-              </p>
-            </article>
-          </div>
-
-          <svg
-            class="diagram"
-            viewBox="0 0 720 150"
-            role="img"
-            aria-label="A GitHub release posts an OIDC token to the marketplace worker, which dispatches validation. The contract probe runs, then the plugin is committed and served on GitHub Pages."
-          >
-            <defs>
-              <marker id="arr3" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-                <path d="M0,0 L0,7 L7,3.5 z" fill="currentColor" />
-              </marker>
-            </defs>
-            <rect x="16" y="36" width="150" height="70" class="d-box" />
-            <text x="91" y="64" class="d-label" text-anchor="middle">GitHub release</text>
-            <text x="91" y="84" class="d-xs" text-anchor="middle">tag · assets</text>
-            <line x1="166" y1="71" x2="198" y2="71" class="d-line" marker-end="url(#arr3)" />
-            <rect x="198" y="36" width="150" height="70" class="d-box" />
-            <text x="273" y="64" class="d-label" text-anchor="middle">OIDC worker</text>
-            <text x="273" y="84" class="d-xs" text-anchor="middle">no shared secrets</text>
-            <line x1="348" y1="71" x2="380" y2="71" class="d-line" marker-end="url(#arr3)" />
-            <rect x="380" y="36" width="150" height="70" class="d-box" />
-            <text x="455" y="64" class="d-label" text-anchor="middle">contract probe</text>
-            <text x="455" y="84" class="d-xs" text-anchor="middle">stdin/v1 gate</text>
-            <line x1="530" y1="71" x2="562" y2="71" class="d-line" marker-end="url(#arr3)" />
-            <rect x="562" y="36" width="142" height="70" class="d-box" />
-            <text x="633" y="64" class="d-label" text-anchor="middle">catalog</text>
-            <text x="633" y="84" class="d-xs" text-anchor="middle">live on Pages</text>
-          </svg>
-
-          <p class="publish-links">
-            <a href="https://github.com/prunesh/prunesh#writing-a-plugin">Plugin authoring guide</a>
-            ·
-            <a href="https://github.com/prunesh/prunesh-date">Reference plugin · prunesh/date</a>
-          </p>
-        </section>
-
-        <section class="start" id="install" aria-labelledby="start-title">
-          <div class="start-inner">
-            <h2 id="start-title">Install a plugin</h2>
-            <p class="lede">
-              Requires prunesh on the machine and a <code>.prunesh</code> marker
-              in the project. Then install by id.
-            </p>
-            <div class="cta">
-              <a class="btn btn-primary" href="https://prunesh.github.io/prunesh#install">Install prunesh</a>
-              <a class="btn btn-ghost" href="#publish">Publish a plugin</a>
+          <div class="catalog-body">
+            <div class="catalog-ledger">
+              <table>
+                <caption>Community plugins. Install from each plugin's GitHub releases.</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Plugin</th>
+                    <th scope="col">Command</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Install</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row"><a href="https://github.com/prunesh/prunesh-gh">prunesh/gh</a></th>
+                    <td><code>gh</code></td>
+                    <td>Prunes GitHub CLI output — strips noise from pr list, issue list, run list and similar commands.</td>
+                    <td>
+                      <div class="install" data-install="prunesh plugin install github.com/prunesh/prunesh-gh@v1.0.0">
+                        <code>prunesh plugin install github.com/prunesh/prunesh-gh@v1.0.0</code>
+                        <button class="copy" type="button" aria-label="Copy install command">
+                          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <rect x="9" y="9" width="11" height="11" />
+                            <path d="M5 15V5a1 1 0 0 1 1-1h9" />
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="https://github.com/prunesh/prunesh-date">prunesh/date</a></th>
+                    <td><code>date</code></td>
+                    <td>Normalises <code>date</code> output to a compact ISO-8601 line.</td>
+                    <td>
+                      <div class="install" data-install="prunesh plugin install github.com/prunesh/prunesh-date@v1.0.0">
+                        <code>prunesh plugin install github.com/prunesh/prunesh-date@v1.0.0</code>
+                        <button class="copy" type="button" aria-label="Copy install command">
+                          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <rect x="9" y="9" width="11" height="11" />
+                            <path d="M5 15V5a1 1 0 0 1 1-1h9" />
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="https://github.com/prunesh/prunesh-docker">prunesh/docker</a></th>
+                    <td><code>docker</code></td>
+                    <td>Strips verbose layer output from <code>docker build</code> and <code>docker pull</code>.</td>
+                    <td>
+                      <div class="install" data-install="prunesh plugin install github.com/prunesh/prunesh-docker@v1.0.0">
+                        <code>prunesh plugin install github.com/prunesh/prunesh-docker@v1.0.0</code>
+                        <button class="copy" type="button" aria-label="Copy install command">
+                          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <rect x="9" y="9" width="11" height="11" />
+                            <path d="M5 15V5a1 1 0 0 1 1-1h9" />
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="https://github.com/prunesh/prunesh-kubectl">prunesh/kubectl</a></th>
+                    <td><code>kubectl</code></td>
+                    <td>Prunes <code>kubectl</code> output — truncates wide resource tables and strips managed-fields noise.</td>
+                    <td>
+                      <div class="install" data-install="prunesh plugin install github.com/prunesh/prunesh-kubectl@v1.0.0">
+                        <code>prunesh plugin install github.com/prunesh/prunesh-kubectl@v1.0.0</code>
+                        <button class="copy" type="button" aria-label="Copy install command">
+                          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <rect x="9" y="9" width="11" height="11" />
+                            <path d="M5 15V5a1 1 0 0 1 1-1h9" />
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"><a href="https://github.com/prunesh/prunesh-pip">prunesh/pip</a></th>
+                    <td><code>pip</code></td>
+                    <td>Strips redundant <code>pip install</code> progress and already-satisfied lines.</td>
+                    <td>
+                      <div class="install" data-install="prunesh plugin install github.com/prunesh/prunesh-pip@v1.0.0">
+                        <code>prunesh plugin install github.com/prunesh/prunesh-pip@v1.0.0</code>
+                        <button class="copy" type="button" aria-label="Copy install command">
+                          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
+                            <rect x="9" y="9" width="11" height="11" />
+                            <path d="M5 15V5a1 1 0 0 1 1-1h9" />
+                          </svg>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div class="install-stack">
-              <div class="install" data-install="prunesh plugin install prunesh/date">
-                <code>prunesh plugin install prunesh/date</code>
-                <button class="copy" type="button" aria-label="Copy plugin install command">
+          </div>
+        </section>
+
+        <section class="howto" id="install" aria-labelledby="howto-title">
+          <header class="block-head">
+            <h2 id="howto-title">How to install a plugin</h2>
+            <p>
+              Plugins are Go binaries distributed as GitHub release assets. Installation
+              downloads the platform binary, validates the <code>stdin/v1</code> contract,
+              and registers the plugin locally.
+            </p>
+          </header>
+
+          <div class="howto-steps">
+            <article>
+              <p class="step-n">01 · Find</p>
+              <h3>Pick a plugin</h3>
+              <p>
+                Browse the catalog above. Each entry links to the plugin's GitHub
+                repository, where you can read its README and find the latest release tag.
+              </p>
+            </article>
+            <article>
+              <p class="step-n">02 · Install</p>
+              <h3>Run one command</h3>
+              <p>
+                Pass the Go module path and a release tag. prunesh downloads the matching
+                platform binary and validates the contract before registering it.
+              </p>
+              <div class="install install-inline" data-install="prunesh plugin install github.com/prunesh/prunesh-gh@v1.0.0">
+                <code>prunesh plugin install github.com/prunesh/prunesh-gh@v1.0.0</code>
+                <button class="copy" type="button" aria-label="Copy install command">
                   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
                     <rect x="9" y="9" width="11" height="11" />
                     <path d="M5 15V5a1 1 0 0 1 1-1h9" />
                   </svg>
                 </button>
               </div>
+            </article>
+            <article>
+              <p class="step-n">03 · Done</p>
+              <h3>Hooks pick it up</h3>
+              <p>
+                No restart needed. The next command the agent runs is intercepted
+                by the new plugin. Verify with <code>prunesh plugin list</code>.
+              </p>
+            </article>
+          </div>
+
+          <p class="howto-links">
+            <a href="https://github.com/prunesh/prunesh#writing-a-plugin">Plugin authoring guide</a>
+            ·
+            <a href="https://github.com/prunesh/prunesh#readme">prunesh documentation</a>
+          </p>
+        </section>
+
+        <section class="start" id="get-started" aria-labelledby="start-title">
+          <div class="start-inner">
+            <h2 id="start-title">Need prunesh first?</h2>
+            <p class="lede">
+              Install the binary, run <code>prunesh init</code> at the project root,
+              then install any plugin from this catalog.
+            </p>
+            <div class="cta">
+              <a class="btn btn-primary" href="https://prunesh.github.io/prunesh#install">Install prunesh</a>
+              <a class="btn btn-ghost" href="https://github.com/prunesh/prunesh#readme">Documentation</a>
             </div>
           </div>
         </section>
       </main>
 
       <footer class="foot">
-        <span class="foot-mark">prunesh marketplace</span>
+        <span class="foot-mark">prunesh plugins</span>
         <nav class="foot-links">
-          <a href="#publish">Publish</a>
           <a href="https://prunesh.github.io/prunesh">prunesh</a>
           <a href="https://github.com/prunesh/marketplace">GitHub</a>
           <a href="https://github.com/prunesh/prunesh/blob/main/LICENSE">Apache 2.0</a>
@@ -211,83 +272,9 @@
           btn.innerHTML = '<span class="copied">Copied</span>';
           setTimeout(() => (btn.innerHTML = copyIcon), 1400);
         } catch {
-          /* portapapeles bloqueado */
+          /* clipboard blocked */
         }
       });
-
-      function esc(s) {
-        return String(s)
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;');
-      }
-
-      function catalogEmpty(msg) {
-        return (
-          '<div class="catalog-empty">' +
-          '<p>' + msg + '</p>' +
-          '<a class="btn btn-primary" href="#publish">Publish a plugin</a>' +
-          '</div>'
-        );
-      }
-
-      (async () => {
-        const body = document.getElementById('catalog-body');
-        if (!body) return;
-        try {
-          const r = await fetch('./registry.json', { headers: { Accept: 'application/json' } });
-          if (!r.ok) {
-            body.innerHTML = catalogEmpty('Registry is not generated yet. Publish a plugin to create the first entry.');
-            return;
-          }
-          const data = await r.json();
-          const modules = Array.isArray(data.modules) ? data.modules : [];
-          if (modules.length === 0) {
-            body.innerHTML = catalogEmpty('No community plugins registered yet. The first valid release creates the catalog.');
-            return;
-          }
-          const rows = modules
-            .map((m) => {
-              const id = esc(m.id || '');
-              const cmd = esc(m.command || '');
-              const latest = esc(m.latest || '—');
-              const repo = m.repo ? esc(m.repo) : '';
-              const install = 'prunesh plugin install ' + (m.id || '');
-              const name = repo
-                ? '<a href="' + repo + '">' + id + '</a>'
-                : id;
-              return (
-                '<tr>' +
-                '<th scope="row">' + name + '</th>' +
-                '<td><code>' + cmd + '</code></td>' +
-                '<td>' + latest + '</td>' +
-                '<td>' +
-                '<div class="install" data-install="' + esc(install) + '">' +
-                '<code>' + esc(install) + '</code>' +
-                '<button class="copy" type="button" aria-label="Copy install command">' +
-                copyIcon +
-                '</button></div>' +
-                '</td>' +
-                '</tr>'
-              );
-            })
-            .join('');
-          body.innerHTML =
-            '<div class="catalog-ledger"><table>' +
-            '<caption>Generated from the marketplace registry. Versions are immutable.</caption>' +
-            '<thead><tr>' +
-            '<th scope="col">Plugin</th>' +
-            '<th scope="col">Command</th>' +
-            '<th scope="col">Latest</th>' +
-            '<th scope="col">Install</th>' +
-            '</tr></thead><tbody>' +
-            rows +
-            '</tbody></table></div>';
-        } catch {
-          body.innerHTML = catalogEmpty('Could not load the registry. Publish a plugin or retry after the next Pages deploy.');
-        }
-      })();
     </script>
 
     <style>
@@ -527,6 +514,11 @@
         text-align: left;
       }
 
+      .install-inline {
+        margin-top: 1rem;
+        font-size: 0.78rem;
+      }
+
       .copy {
         display: inline-flex;
         align-items: center;
@@ -571,59 +563,14 @@
       }
 
       .catalog,
-      .publish {
+      .howto {
         padding: 4rem 2.5rem 3.5rem;
         border-bottom: 1px solid var(--ink-rule);
       }
 
-      .diagram {
-        width: 100%;
-        max-width: 720px;
-        margin: 0 auto;
-        display: block;
-        color: var(--ink);
-      }
-
-      .d-box {
-        fill: var(--ink-paper);
-        stroke: var(--ink);
-        stroke-width: 1.25;
-      }
-
-      .d-label {
-        font-family: var(--ink-mono);
-        font-size: 14px;
-        fill: var(--ink);
-        dominant-baseline: middle;
-      }
-
-      .d-xs {
-        font-family: var(--ink-mono);
-        font-size: 11px;
-        fill: var(--ink-2);
-        dominant-baseline: middle;
-      }
-
-      .d-line {
-        stroke: var(--ink);
-        stroke-width: 1.25;
-        fill: none;
-      }
-
       .catalog-body {
-        max-width: 960px;
+        max-width: 1100px;
         margin: 0 auto;
-      }
-
-      .catalog-status,
-      .catalog-empty p {
-        margin: 0 0 1.4rem;
-        text-align: center;
-        color: var(--ink-2);
-      }
-
-      .catalog-empty {
-        text-align: center;
       }
 
       .catalog-ledger {
@@ -647,10 +594,17 @@
       .catalog-ledger th,
       .catalog-ledger td {
         text-align: left;
-        padding: 0.85rem 0.6rem;
+        padding: 1rem 0.75rem;
         border-bottom: 1px solid var(--ink-rule-soft);
         font-size: 0.95rem;
         vertical-align: middle;
+      }
+
+      .catalog-ledger td:nth-child(3) {
+        color: var(--ink-2);
+        font-size: 0.9rem;
+        max-width: 28ch;
+        line-height: 1.45;
       }
 
       .catalog-ledger thead th {
@@ -665,6 +619,7 @@
 
       .catalog-ledger tbody th {
         font-weight: 600;
+        white-space: nowrap;
       }
 
       .catalog-ledger tbody th a {
@@ -677,10 +632,10 @@
       }
 
       .catalog-ledger .install {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
       }
 
-      .publish-steps {
+      .howto-steps {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         border: 1px solid var(--ink-rule);
@@ -688,15 +643,15 @@
         max-width: 960px;
       }
 
-      .publish-steps article {
+      .howto-steps article {
         padding: 1.8rem 1.5rem;
       }
 
-      .publish-steps article + article {
+      .howto-steps article + article {
         border-inline-start: 1px solid var(--ink-rule);
       }
 
-      .publish-steps .step-n {
+      .howto-steps .step-n {
         margin: 0 0 0.7rem;
         font-family: var(--ink-mono);
         font-size: 0.72rem;
@@ -705,32 +660,28 @@
         color: var(--ink-2);
       }
 
-      .publish-steps h3 {
+      .howto-steps h3 {
         margin: 0 0 0.75rem;
         font-size: 1.15rem;
         font-weight: 700;
         letter-spacing: -0.02em;
       }
 
-      .publish-steps p {
+      .howto-steps p {
         margin: 0;
         font-size: 0.95rem;
         line-height: 1.55;
         color: var(--ink-2);
       }
 
-      .publish-steps a {
-        text-underline-offset: 3px;
-      }
-
-      .publish-links {
+      .howto-links {
         margin: 1.8rem 0 0;
         text-align: center;
         color: var(--ink-2);
         font-size: 0.95rem;
       }
 
-      .publish-links a {
+      .howto-links a {
         color: var(--ink);
         text-underline-offset: 3px;
       }
@@ -751,13 +702,6 @@
         font-weight: 800;
         letter-spacing: -0.04em;
         line-height: 0.98;
-      }
-
-      .install-stack {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.75rem;
       }
 
       .foot {
@@ -819,13 +763,9 @@
           font-size: 0.85rem;
         }
 
-        .nav-links .opt {
-          display: none;
-        }
-
         .hero,
         .catalog,
-        .publish,
+        .howto,
         .start {
           padding-left: 1.25rem;
           padding-right: 1.25rem;
@@ -841,11 +781,11 @@
           overflow-wrap: anywhere;
         }
 
-        .publish-steps {
+        .howto-steps {
           grid-template-columns: 1fr;
         }
 
-        .publish-steps article + article {
+        .howto-steps article + article {
           border-inline-start: none;
           border-top: 1px solid var(--ink-rule);
         }
