@@ -1,0 +1,32 @@
+name: Publish to prunesh marketplace
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - name: Get OIDC token
+        id: oidc
+        run: |
+          TOKEN=$(curl -s \
+            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=prunesh-marketplace" \
+            | jq -r .value)
+          echo "token=$TOKEN" >> $GITHUB_OUTPUT
+
+      - name: Publish to marketplace
+        run: |
+          curl -sf -X POST \
+            https://prunesh-marketplace-worker.prunesh-marketplace-worker.workers.dev/publish \
+            -H "Content-Type: application/json" \
+            -d '{
+              "oidc_token": "${{ steps.oidc.outputs.token }}",
+              "plugin_id": "<author>/<command>",
+              "version": "${{ github.ref_name }}",
+              "repo": "https://github.com/${{ github.repository }}"
+            }'

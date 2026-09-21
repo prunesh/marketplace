@@ -1,1 +1,10 @@
 .modules
+
+# worker build artifacts and local Cloudflare state
+worker/node_modules/
+worker/.wrangler/
+worker/dist/
+
+# env files
+.env
+.env.*

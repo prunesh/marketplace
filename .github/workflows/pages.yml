@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - "site/**"
+      - "plugins/**"
+      - "site/modules/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -26,6 +28,53 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Generate registry.json
+        run: |
+          python3 - <<'EOF'
+          import json, os, glob
+          from datetime import datetime, timezone
+
+          try:
+            import yaml
+          except ImportError:
+            import subprocess
+            subprocess.run(["pip", "install", "pyyaml", "-q"], check=True)
+            import yaml
+
+          modules = []
+
+          for yaml_path in sorted(glob.glob("plugins/*.yaml")):
+            with open(yaml_path) as f:
+              plugin = yaml.safe_load(f)
+
+            plugin_id = plugin["id"]
+            author, command = plugin_id.split("/", 1)
+            index_path = f"site/modules/{author}/{command}/index.json"
+
+            latest = None
+            if os.path.exists(index_path):
+              with open(index_path) as f:
+                latest = json.load(f).get("latest")
+
+            modules.append({
+              "id": plugin_id,
+              "command": plugin["command"],
+              "repo": plugin["repo"],
+              "latest": latest,
+            })
+
+          registry = {
+            "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "modules": modules,
+          }
+
+          os.makedirs("site", exist_ok=True)
+          with open("site/registry.json", "w") as f:
+            json.dump(registry, f, indent=2)
+
+          print(f"registry.json generated with {len(modules)} module(s)")
+          EOF
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
