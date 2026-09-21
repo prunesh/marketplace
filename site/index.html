@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <title>prunesh marketplace — Token reduction for AI coding agents</title>
+    <title>prunesh marketplace — Plugin registry</title>
     <meta
       name="description"
       content="Official plugin registry for prunesh. Browse modules, install them with one command, or publish your own. Same stdin/v1 contract as built-in filters."
     />
     <meta property="og:title" content="prunesh marketplace" />
-    <meta property="og:description" content="Token reduction for AI coding agents." />
+    <meta property="og:description" content="Browse, install, and publish prunesh plugins." />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#f5f0e8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -31,86 +31,31 @@
             <rect x="5" y="24" width="5" height="3.2" fill="currentColor" />
           </svg>
           prunesh
+          <span class="wordmark-sub">marketplace</span>
         </a>
         <nav class="nav-links">
           <a href="#catalog">Catalog</a>
           <a class="opt" href="#publish">Publish</a>
-          <a class="opt" href="#architecture">Architecture</a>
-          <a href="https://github.com/prunesh/prunesh-core#readme">Docs</a>
+          <a href="https://prunesh.github.io/prunesh">prunesh</a>
           <a href="https://github.com/prunesh/marketplace">GitHub</a>
         </nav>
       </header>
 
       <main>
         <section class="hero">
-          <svg
-            class="hero-prune"
-            viewBox="0 0 720 420"
-            preserveAspectRatio="xMidYMid slice"
-            aria-hidden="true"
-            focusable="false"
-          >
-            <g class="hero-prune-raw">
-              <text x="48" y="42" class="hero-prune-label">raw stdout</text>
-              <rect x="48" y="58" width="300" height="2" />
-              <rect x="48" y="74" width="284" height="2" />
-              <rect x="48" y="90" width="296" height="2" />
-              <rect x="48" y="106" width="268" height="2" />
-              <rect x="48" y="122" width="292" height="2" />
-              <rect x="48" y="138" width="250" height="2" />
-              <rect x="48" y="154" width="288" height="2" />
-              <rect x="48" y="170" width="274" height="2" />
-              <rect x="48" y="186" width="300" height="2" />
-              <rect x="48" y="202" width="236" height="2" />
-              <rect x="48" y="218" width="280" height="2" />
-              <rect x="48" y="234" width="264" height="2" />
-              <rect x="48" y="250" width="298" height="2" />
-              <rect x="48" y="266" width="220" height="2" />
-              <rect x="48" y="282" width="276" height="2" />
-              <rect x="48" y="298" width="290" height="2" />
-              <rect x="48" y="314" width="248" height="2" />
-              <rect x="48" y="330" width="286" height="2" />
-              <rect x="48" y="346" width="270" height="2" />
-              <rect x="48" y="362" width="294" height="2" />
-            </g>
-            <g class="hero-prune-cut">
-              <text x="420" y="42" class="hero-prune-label">after prunesh</text>
-              <rect x="420" y="58" width="88" height="2" />
-              <rect x="420" y="74" width="64" height="2" />
-              <rect x="420" y="90" width="72" height="2" />
-              <rect x="420" y="106" width="54" height="2" />
-              <rect x="420" y="122" width="80" height="2" />
-              <rect x="420" y="138" width="48" height="2" />
-              <rect x="420" y="154" width="70" height="2" />
-              <rect x="420" y="170" width="42" height="2" />
-              <rect x="420" y="186" width="76" height="2" />
-              <rect x="420" y="202" width="50" height="2" />
-              <rect x="420" y="218" width="62" height="2" />
-              <rect x="420" y="234" width="38" height="2" />
-              <rect x="420" y="250" width="68" height="2" />
-              <rect x="420" y="266" width="44" height="2" />
-              <rect x="420" y="282" width="58" height="2" />
-              <rect x="420" y="298" width="36" height="2" />
-              <rect x="420" y="314" width="74" height="2" />
-              <rect x="420" y="330" width="46" height="2" />
-              <rect x="420" y="346" width="60" height="2" />
-              <rect x="420" y="362" width="40" height="2" />
-            </g>
-          </svg>
           <div class="hero-copy">
-            <p class="hero-tag">Token reduction for AI coding agents</p>
-            <h1>Cut the noise before it fills the context window</h1>
+            <p class="hero-tag">Official plugin registry</p>
+            <h1>Browse, install, publish</h1>
             <p class="lede">
-              prunesh intercepts shell commands from your coding agent, rewrites them,
-              and prunes stdout. Same tools. Deterministic heuristics. Fewer tokens.
+              Community plugins for prunesh. Same <code>stdin/v1</code> contract as
+              built-in modules. Install by id — no fork of core required.
             </p>
-            <p class="quote">Podar es eliminar lo que sobra para que lo esencial crezca más fuerte.</p>
             <div class="cta">
-              <a class="btn btn-primary" href="#install">Install prunesh</a>
-              <a class="btn btn-ghost" href="https://github.com/prunesh/prunesh-core#readme">Documentation</a>
+              <a class="btn btn-primary" href="#catalog">Browse catalog</a>
+              <a class="btn btn-ghost" href="#publish">Publish a plugin</a>
             </div>
-            <div class="install" data-install="curl -sSL https://raw.githubusercontent.com/prunesh/prunesh/main/install.sh | sh">
-              <code>curl -sSL https://raw.githubusercontent.com/prunesh/prunesh/main/install.sh | sh</code>
+            <div class="install" data-install="prunesh plugin install prunesh/date">
+              <code>prunesh plugin install prunesh/date</code>
               <button class="copy" type="button" aria-label="Copy install command">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
                   <rect x="9" y="9" width="11" height="11" />
@@ -118,264 +63,11 @@
                 </svg>
               </button>
             </div>
-          </div>
-        </section>
-
-        <section class="proof" id="reduction" aria-labelledby="proof-title">
-          <div class="proof-stat">
-            <p class="proof-kicker">Measured on git log</p>
-            <p class="proof-num" id="proof-title">−87%</p>
-            <p class="proof-cap">
-              80 commits, 1,917 tokens down to 244.
-              Heuristic truncation — no model, no cache.
+            <p class="hero-note">
+              Need the binary first?
+              <a href="https://prunesh.github.io/prunesh#install">Install prunesh</a>
             </p>
           </div>
-          <div class="proof-ledger">
-            <table>
-              <caption>Token estimates at ~4 chars/token. Small outputs may not shrink.</caption>
-              <thead>
-                <tr>
-                  <th scope="col">Command</th>
-                  <th scope="col">Before</th>
-                  <th scope="col">After</th>
-                  <th scope="col">Saved</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row"><code>git log</code> · 80 commits</th>
-                  <td>1,917</td>
-                  <td>244</td>
-                  <td>87%</td>
-                </tr>
-                <tr>
-                  <th scope="row"><code>ls</code> · 70 entries</th>
-                  <td>262</td>
-                  <td>65</td>
-                  <td>75%</td>
-                </tr>
-                <tr>
-                  <th scope="row"><code>git diff</code> · 400 lines</th>
-                  <td>3,185</td>
-                  <td>813</td>
-                  <td>74%</td>
-                </tr>
-                <tr>
-                  <th scope="row"><code>Read</code> · commented Go</th>
-                  <td>1,346</td>
-                  <td>348</td>
-                  <td>74%</td>
-                </tr>
-                <tr>
-                  <th scope="row"><code>find</code> · 150 paths</th>
-                  <td>1,050</td>
-                  <td>374</td>
-                  <td>64%</td>
-                </tr>
-                <tr>
-                  <th scope="row">MCP tool · 5,200 chars</th>
-                  <td>1,300</td>
-                  <td>758</td>
-                  <td>42%</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section class="intercept" id="how" aria-labelledby="intercept-title">
-          <header class="block-head">
-            <h2 id="intercept-title">One command. Two cuts.</h2>
-            <p>
-              PreToolUse rewrites the invocation to <code>prunesh &lt;cmd&gt;</code>.
-              The proxy runs the real tool, then prunes stdout before it reaches the agent.
-              Hooks are inert without a <code>.prunesh</code> marker at the project root.
-            </p>
-          </header>
-          <svg
-            class="diagram"
-            viewBox="0 0 720 430"
-            role="img"
-            aria-label="A shell command from Claude Code, Cursor, Codex or OpenCode is rewritten by hook-pre to prunesh git log. The git module rewrites arguments, the real command runs, FilterOutput prunes stdout, NeverWorse keeps the shorter result, and the agent receives 87 percent fewer tokens."
-          >
-            <defs>
-              <marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-                <path d="M0,0 L0,7 L7,3.5 z" fill="currentColor" />
-              </marker>
-              <path id="flow-path" d="M360,36 L360,394" fill="none" />
-            </defs>
-
-            <g class="d-agents">
-              <text x="360" y="18" class="d-xs" text-anchor="middle">Claude Code · Cursor · Codex · OpenCode</text>
-            </g>
-
-            <g class="d-cmd">
-              <rect x="230" y="36" width="260" height="36" class="d-box" />
-              <text x="360" y="56" class="d-label" text-anchor="middle">git log</text>
-            </g>
-
-            <line x1="360" y1="72" x2="360" y2="96" class="d-line" marker-end="url(#arr)" />
-            <text x="348" y="88" class="d-xs" text-anchor="end">hook-pre</text>
-
-            <g class="d-proxy">
-              <rect x="190" y="96" width="340" height="50" class="d-box" />
-              <text x="360" y="116" class="d-label" text-anchor="middle">prunesh git log</text>
-              <text x="360" y="134" class="d-xs" text-anchor="middle">argv0 rewrite · agent never changes the tool</text>
-            </g>
-
-            <line x1="360" y1="146" x2="360" y2="170" class="d-line" marker-end="url(#arr)" />
-            <text x="348" y="162" class="d-xs" text-anchor="end">Rewrite()</text>
-
-            <g class="d-rewrite">
-              <rect x="190" y="170" width="340" height="50" class="d-box" />
-              <text x="360" y="190" class="d-label" text-anchor="middle">git log — pretty, capped</text>
-              <text x="360" y="208" class="d-xs" text-anchor="middle">module injects flags before exec</text>
-            </g>
-
-            <line x1="360" y1="220" x2="360" y2="244" class="d-line" marker-end="url(#arr)" />
-            <text x="348" y="236" class="d-xs" text-anchor="end">exec</text>
-
-            <g class="d-raw">
-              <rect x="230" y="244" width="260" height="36" class="d-box" />
-              <text x="360" y="264" class="d-label" text-anchor="middle">raw stdout</text>
-            </g>
-
-            <line x1="360" y1="280" x2="360" y2="304" class="d-line" marker-end="url(#arr)" />
-            <text x="348" y="296" class="d-xs" text-anchor="end">FilterOutput</text>
-
-            <g class="d-out">
-              <rect x="160" y="304" width="400" height="50" class="d-box" />
-              <text x="360" y="324" class="d-label" text-anchor="middle">1,917 tokens → 244 tokens</text>
-              <text x="360" y="342" class="d-xs" text-anchor="middle">compact stdout · recorded by prunesh gain</text>
-            </g>
-
-            <line x1="360" y1="354" x2="360" y2="378" class="d-line" marker-end="url(#arr)" />
-
-            <g class="d-back">
-              <rect x="230" y="378" width="260" height="36" class="d-box" />
-              <text x="360" y="398" class="d-label" text-anchor="middle">agent context</text>
-            </g>
-
-            <circle r="3.5" class="d-dot">
-              <animateMotion dur="3.2s" repeatCount="indefinite" begin="0.8s"
-                keyTimes="0;0.85;1" keyPoints="0;1;1" calcMode="linear">
-                <mpath href="#flow-path"/>
-              </animateMotion>
-              <animate attributeName="opacity"
-                values="0;1;1;0;0"
-                keyTimes="0;0.04;0.8;0.9;1"
-                dur="3.2s" repeatCount="indefinite" begin="0.8s"/>
-            </circle>
-          </svg>
-        </section>
-
-        <section class="arch" id="architecture" aria-labelledby="arch-title">
-          <header class="block-head">
-            <h2 id="arch-title">Everything is a module</h2>
-            <p>
-              The core is a hook, a proxy, and a registry. Modules never import each other.
-              Built-in and marketplace plugins implement the same <code>registry.Module</code>
-              interface — the proxy cannot tell them apart.
-            </p>
-          </header>
-
-          <div class="arch-split">
-            <article>
-              <h3>Built-in</h3>
-              <p>
-                Compiled into the binary via blank imports in <code>main.go</code>.
-                Not installed to disk. Ships with git, ls, find, grep, rg, tree,
-                docker, cargo, go, npm, pytest, python, and Read/MCP filters.
-              </p>
-            </article>
-            <article>
-              <h3>Marketplace</h3>
-              <p>
-                External binaries installed to <code>~/.prunesh/plugins/</code> and
-                registered in <code>plugins.db</code>. Contract <code>stdin/v1</code>:
-                JSON on stdin/stdout. Any language. Core stays closed.
-              </p>
-            </article>
-          </div>
-
-          <svg
-            class="diagram"
-            viewBox="0 0 720 430"
-            role="img"
-            aria-label="registry.Module is implemented by compiled-in plugins and by marketplace binaries. proxy.Run resolves the active marketplace plugin from plugins.db, otherwise falls back to the built-in registry."
-          >
-            <defs>
-              <marker id="arr2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-                <path d="M0,0 L0,7 L7,3.5 z" fill="currentColor" />
-              </marker>
-            </defs>
-
-            <g class="d-iface">
-              <rect x="140" y="16" width="440" height="70" class="d-box" />
-              <text x="360" y="42" class="d-label" text-anchor="middle">registry.Module</text>
-              <text x="360" y="66" class="d-xs" text-anchor="middle">Name · Rewrite · FilterOutput · TokensBefore · TokensAfter</text>
-            </g>
-
-            <line x1="360" y1="86" x2="360" y2="112" class="d-line" />
-            <line x1="180" y1="112" x2="540" y2="112" class="d-line" />
-            <line x1="180" y1="112" x2="180" y2="136" class="d-line" marker-end="url(#arr2)" />
-            <line x1="540" y1="112" x2="540" y2="136" class="d-line" marker-end="url(#arr2)" />
-
-            <g class="d-built">
-              <rect x="40" y="136" width="280" height="150" class="d-box" />
-              <text x="180" y="168" class="d-label" text-anchor="middle">built-in</text>
-              <text x="180" y="196" class="d-xs" text-anchor="middle">plugins/*.go</text>
-              <text x="180" y="216" class="d-xs" text-anchor="middle">registry.Register at init</text>
-              <text x="180" y="236" class="d-xs" text-anchor="middle">blank import in main.go</text>
-              <text x="180" y="256" class="d-xs" text-anchor="middle">lives inside the binary</text>
-            </g>
-
-            <g class="d-market">
-              <rect x="400" y="136" width="280" height="150" class="d-box" />
-              <text x="540" y="168" class="d-label" text-anchor="middle">marketplace</text>
-              <text x="540" y="196" class="d-xs" text-anchor="middle">prunesh.json · stdin/v1</text>
-              <text x="540" y="216" class="d-xs" text-anchor="middle">~/.prunesh/plugins/</text>
-              <text x="540" y="236" class="d-xs" text-anchor="middle">plugins.db · active wins</text>
-              <text x="540" y="256" class="d-xs" text-anchor="middle">subprocess adapter</text>
-            </g>
-
-            <line x1="180" y1="286" x2="180" y2="318" class="d-line" />
-            <line x1="540" y1="286" x2="540" y2="318" class="d-line" />
-            <line x1="180" y1="318" x2="540" y2="318" class="d-line" />
-            <line x1="360" y1="318" x2="360" y2="344" class="d-line" marker-end="url(#arr2)" />
-
-            <g class="d-run">
-              <rect x="140" y="344" width="440" height="70" class="d-box" />
-              <text x="360" y="370" class="d-label" text-anchor="middle">proxy.Run</text>
-              <text x="360" y="394" class="d-xs" text-anchor="middle">plugins.db active, else registry.Get — same code path</text>
-            </g>
-          </svg>
-        </section>
-
-        <section class="modules" id="modules" aria-labelledby="modules-title">
-          <header class="block-head">
-            <h2 id="modules-title">What ships in the binary</h2>
-            <p>
-              Built-in modules compile into prunesh. Marketplace plugins extend the
-              same registry without touching core.
-            </p>
-          </header>
-          <ul class="module-rail">
-            <li>git</li>
-            <li>ls</li>
-            <li>find</li>
-            <li>grep</li>
-            <li>rg</li>
-            <li>tree</li>
-            <li>docker</li>
-            <li>cargo</li>
-            <li>go</li>
-            <li>npm</li>
-            <li>pytest</li>
-            <li>python</li>
-            <li>Read</li>
-            <li>MCP</li>
-          </ul>
         </section>
 
         <section class="catalog" id="catalog" aria-labelledby="catalog-title">
@@ -460,7 +152,7 @@
           </svg>
 
           <p class="publish-links">
-            <a href="https://github.com/prunesh/prunesh-core#writing-a-plugin">Plugin authoring guide</a>
+            <a href="https://github.com/prunesh/prunesh#writing-a-plugin">Plugin authoring guide</a>
             ·
             <a href="https://github.com/prunesh/prunesh-date">Reference plugin · prunesh/date</a>
           </p>
@@ -468,25 +160,16 @@
 
         <section class="start" id="install" aria-labelledby="start-title">
           <div class="start-inner">
-            <h2 id="start-title">Opt in per project</h2>
+            <h2 id="start-title">Install a plugin</h2>
             <p class="lede">
-              Install the binary, run <code>prunesh init</code> at the repo root,
-              restart the agent. Then install marketplace plugins by id.
+              Requires prunesh on the machine and a <code>.prunesh</code> marker
+              in the project. Then install by id.
             </p>
             <div class="cta">
-              <a class="btn btn-primary" href="https://github.com/prunesh/prunesh-core#readme">Get started</a>
+              <a class="btn btn-primary" href="https://prunesh.github.io/prunesh#install">Install prunesh</a>
               <a class="btn btn-ghost" href="#publish">Publish a plugin</a>
             </div>
             <div class="install-stack">
-              <div class="install" data-install="prunesh init">
-                <code>prunesh init</code>
-                <button class="copy" type="button" aria-label="Copy prunesh init">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
-                    <rect x="9" y="9" width="11" height="11" />
-                    <path d="M5 15V5a1 1 0 0 1 1-1h9" />
-                  </svg>
-                </button>
-              </div>
               <div class="install" data-install="prunesh plugin install prunesh/date">
                 <code>prunesh plugin install prunesh/date</code>
                 <button class="copy" type="button" aria-label="Copy plugin install command">
@@ -502,12 +185,12 @@
       </main>
 
       <footer class="foot">
-        <span class="foot-mark">prunesh</span>
+        <span class="foot-mark">prunesh marketplace</span>
         <nav class="foot-links">
           <a href="#publish">Publish</a>
-          <a href="https://github.com/prunesh/prunesh-core#readme">Docs</a>
+          <a href="https://prunesh.github.io/prunesh">prunesh</a>
           <a href="https://github.com/prunesh/marketplace">GitHub</a>
-          <a href="https://github.com/prunesh/prunesh-core/blob/main/LICENSE">Apache 2.0</a>
+          <a href="https://github.com/prunesh/prunesh/blob/main/LICENSE">Apache 2.0</a>
         </nav>
       </footer>
     </div>
@@ -708,6 +391,13 @@
         flex-shrink: 0;
       }
 
+      .wordmark-sub {
+        font-weight: 500;
+        font-size: 0.72em;
+        letter-spacing: 0.02em;
+        color: var(--ink-2);
+      }
+
       .nav-links {
         display: flex;
         align-items: center;
@@ -726,39 +416,12 @@
       }
 
       .hero {
-        position: relative;
-        overflow-x: clip;
         padding: 4.5rem 3rem 3.5rem;
         border-bottom: 1px solid var(--ink-rule);
         text-align: center;
       }
 
-      .hero-prune {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        color: var(--ink);
-        opacity: 0.22;
-        z-index: 0;
-      }
-
-      .hero-prune rect {
-        fill: currentColor;
-        transform-box: fill-box;
-        transform-origin: left center;
-      }
-
-      .hero-prune-label {
-        font-family: var(--ink-mono);
-        font-size: 11px;
-        fill: currentColor;
-      }
-
       .hero-copy {
-        position: relative;
-        z-index: 1;
         max-width: 46rem;
         margin: 0 auto;
       }
@@ -789,12 +452,15 @@
         margin: 0 auto 1.4rem;
       }
 
-      .quote {
-        font-size: 1rem;
-        font-style: italic;
+      .hero-note {
+        margin: 1.4rem 0 0;
+        font-size: 0.95rem;
         color: var(--ink-2);
-        margin: 0 auto 2rem;
-        max-width: 42ch;
+      }
+
+      .hero-note a {
+        color: var(--ink);
+        text-underline-offset: 3px;
       }
 
       .cta {
@@ -883,90 +549,6 @@
         padding: 0 0.2rem;
       }
 
-      .proof {
-        display: grid;
-        grid-template-columns: minmax(16rem, 0.9fr) 1.2fr;
-        border-bottom: 1px solid var(--ink-rule);
-      }
-
-      .proof-stat {
-        padding: 3.2rem 2.5rem;
-        border-inline-end: 1px solid var(--ink-rule);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      .proof-kicker {
-        margin: 0 0 0.6rem;
-        font-family: var(--ink-mono);
-        font-size: 0.72rem;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: var(--ink-2);
-      }
-
-      .proof-num {
-        margin: 0 0 0.8rem;
-        font-size: clamp(4rem, 8vw, 6.4rem);
-        font-weight: 800;
-        letter-spacing: -0.06em;
-        line-height: 0.9;
-      }
-
-      .proof-cap {
-        margin: 0;
-        font-size: 1.02rem;
-        line-height: 1.5;
-        color: var(--ink-2);
-        max-width: 28ch;
-      }
-
-      .proof-ledger {
-        padding: 2.2rem 2rem;
-        overflow-x: auto;
-      }
-
-      .proof-ledger table {
-        width: 100%;
-        border-collapse: collapse;
-        font-variant-numeric: tabular-nums;
-      }
-
-      .proof-ledger caption {
-        caption-side: bottom;
-        text-align: left;
-        padding-top: 1rem;
-        font-size: 0.82rem;
-        color: var(--ink-3);
-      }
-
-      .proof-ledger th,
-      .proof-ledger td {
-        text-align: left;
-        padding: 0.7rem 0.55rem;
-        border-bottom: 1px solid var(--ink-rule-soft);
-        font-size: 0.95rem;
-      }
-
-      .proof-ledger thead th {
-        font-family: var(--ink-mono);
-        font-size: 0.7rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        font-weight: 500;
-        color: var(--ink-2);
-        border-bottom: 1px solid var(--ink-rule);
-      }
-
-      .proof-ledger tbody th {
-        font-weight: 500;
-      }
-
-      .proof-ledger td:last-child {
-        font-weight: 700;
-      }
-
       .block-head {
         max-width: 44rem;
         margin: 0 auto 2.4rem;
@@ -988,9 +570,6 @@
         color: var(--ink-2);
       }
 
-      .intercept,
-      .arch,
-      .modules,
       .catalog,
       .publish {
         padding: 4rem 2.5rem 3.5rem;
@@ -1029,60 +608,6 @@
         stroke: var(--ink);
         stroke-width: 1.25;
         fill: none;
-      }
-
-      .d-dot {
-        fill: var(--ink);
-        opacity: 0;
-      }
-
-      .arch-split {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        border: 1px solid var(--ink-rule);
-        margin: 0 auto 2.5rem;
-        max-width: 880px;
-      }
-
-      .arch-split article {
-        padding: 2rem 1.8rem;
-      }
-
-      .arch-split article + article {
-        border-inline-start: 1px solid var(--ink-rule);
-      }
-
-      .arch-split h3 {
-        margin: 0 0 0.8rem;
-        font-size: 1.2rem;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-      }
-
-      .arch-split p {
-        margin: 0;
-        font-size: 0.98rem;
-        line-height: 1.55;
-        color: var(--ink-2);
-      }
-
-      .module-rail {
-        list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.55rem;
-        margin: 0;
-        padding: 0;
-        max-width: 52rem;
-        margin-inline: auto;
-      }
-
-      .module-rail li {
-        font-family: var(--ink-mono);
-        font-size: 0.88rem;
-        border: 1px solid var(--ink-rule);
-        padding: 0.4rem 0.75rem;
       }
 
       .catalog-body {
@@ -1282,82 +807,6 @@
         @keyframes ink-in {
           to { opacity: 1; transform: none; filter: blur(0); }
         }
-
-        .hero-prune-raw {
-          animation: prune-drift-a 18s ease-in-out infinite alternate;
-        }
-        .hero-prune-cut {
-          animation: prune-drift-b 22s ease-in-out infinite alternate;
-        }
-        .hero-prune-label {
-          animation: prune-label 9s ease-in-out infinite alternate;
-        }
-
-        .hero-prune-raw rect {
-          animation: bar-raw 4.6s ease-in-out infinite;
-        }
-        .hero-prune-raw rect:nth-child(3n) {
-          animation-duration: 3.7s;
-          animation-delay: -0.5s;
-        }
-        .hero-prune-raw rect:nth-child(3n + 1) {
-          animation-duration: 5.8s;
-          animation-delay: -2.2s;
-        }
-        .hero-prune-raw rect:nth-child(3n + 2) {
-          animation-duration: 6.5s;
-          animation-delay: -3.6s;
-        }
-
-        .hero-prune-cut rect {
-          animation: bar-cut 5.4s ease-in-out infinite;
-        }
-        .hero-prune-cut rect:nth-child(even) {
-          animation-duration: 4.2s;
-          animation-delay: -1.4s;
-        }
-        .hero-prune-cut rect:nth-child(3n) {
-          animation-duration: 7s;
-          animation-delay: -2.8s;
-        }
-
-        @keyframes prune-drift-a {
-          from { transform: translate(0, 0); }
-          to { transform: translate(12px, -14px); }
-        }
-        @keyframes prune-drift-b {
-          from { transform: translate(0, 0); }
-          to { transform: translate(-10px, 12px); }
-        }
-        @keyframes prune-label {
-          from { opacity: 0.4; transform: translateY(0); }
-          to { opacity: 0.95; transform: translateY(-7px); }
-        }
-        @keyframes bar-raw {
-          0%, 100% { transform: scaleX(0.58); opacity: 0.35; }
-          50% { transform: scaleX(1); opacity: 0.95; }
-        }
-        @keyframes bar-cut {
-          0%, 100% { transform: scaleX(0.55); opacity: 0.4; }
-          50% { transform: scaleX(1); opacity: 1; }
-        }
-
-        .d-agents, .d-iface { opacity: 0; animation: ink-fade 0.5s ease 0.4s forwards; }
-        .d-cmd, .d-built { opacity: 0; animation: ink-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards; }
-        .d-proxy, .d-market { opacity: 0; animation: ink-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards; }
-        .d-rewrite { opacity: 0; animation: ink-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.95s forwards; }
-        .d-raw { opacity: 0; animation: ink-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) 1.1s forwards; }
-        .d-out, .d-run { opacity: 0; animation: ink-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) 1.25s forwards; }
-        .d-back { opacity: 0; animation: ink-up 0.55s cubic-bezier(0.16, 1, 0.3, 1) 1.4s forwards; }
-
-        @keyframes ink-up {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: none; }
-        }
-        @keyframes ink-fade {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
       }
 
       @media (max-width: 860px) {
@@ -1375,9 +824,6 @@
         }
 
         .hero,
-        .intercept,
-        .arch,
-        .modules,
         .catalog,
         .publish,
         .start {
@@ -1393,25 +839,6 @@
         .install code {
           white-space: normal;
           overflow-wrap: anywhere;
-        }
-
-        .proof {
-          grid-template-columns: 1fr;
-        }
-
-        .proof-stat {
-          border-inline-end: none;
-          border-bottom: 1px solid var(--ink-rule);
-          padding: 2.4rem 1.5rem;
-        }
-
-        .arch-split {
-          grid-template-columns: 1fr;
-        }
-
-        .arch-split article + article {
-          border-inline-start: none;
-          border-top: 1px solid var(--ink-rule);
         }
 
         .publish-steps {

@@ -1,6 +1,6 @@
 # prunesh marketplace
 
-The official plugin registry for [prunesh](https://github.com/prunesh/prunesh-core). Browse and install plugins that extend prunesh with support for additional commands.
+The official plugin registry for [prunesh](https://github.com/prunesh/prunesh). Browse and install plugins that extend prunesh with support for additional commands.
 
 **Site:** https://prunesh.github.io/marketplace
 
@@ -25,7 +25,7 @@ prunesh plugin install github.com/prunesh/prunesh-date@v0.3.0
 
 ### 1. Build your plugin
 
-Your plugin must implement the `stdin/v1` protocol. See the [plugin authoring guide](https://github.com/prunesh/prunesh-core#writing-a-plugin) and the reference plugin [prunesh/date](https://github.com/prunesh/prunesh-date).
+Your plugin must implement the `stdin/v1` protocol. See the [plugin authoring guide](https://github.com/prunesh/prunesh#writing-a-plugin) and the reference plugin [prunesh/date](https://github.com/prunesh/prunesh-date).
 
 Your release must include:
 - A `prunesh.json` manifest as a release asset
