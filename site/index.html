@@ -7,10 +7,10 @@
     <title>prunesh plugins — Community plugin catalog</title>
     <meta
       name="description"
-      content="Community plugins for prunesh. Browse available plugins and install them directly from GitHub."
+      content="Community plugins for prunesh. Browse plugins tagged prunesh-plugin on GitHub and install them directly from any release."
     />
     <meta property="og:title" content="prunesh plugins" />
-    <meta property="og:description" content="Community plugins for prunesh. Install from GitHub." />
+    <meta property="og:description" content="Community plugins for prunesh. Discover and install from GitHub." />
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#f5f0e8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,15 +55,6 @@
               <a class="btn btn-primary" href="#catalog">Browse catalog</a>
               <a class="btn btn-ghost" href="#install">How to install</a>
             </div>
-            <div class="install" data-install="prunesh plugin install github.com/prunesh/prunesh-gh@v1.0.0">
-              <code>prunesh plugin install github.com/prunesh/prunesh-gh@v1.0.0</code>
-              <button class="copy" type="button" aria-label="Copy install command">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
-                  <rect x="9" y="9" width="11" height="11" />
-                  <path d="M5 15V5a1 1 0 0 1 1-1h9" />
-                </svg>
-              </button>
-            </div>
             <p class="hero-note">
               Need the binary first?
               <a href="https://prunesh.github.io/prunesh#install">Install prunesh</a>
@@ -75,101 +66,29 @@
           <header class="block-head">
             <h2 id="catalog-title">Plugin catalog</h2>
             <p>
-              Install with <code>prunesh plugin install github.com/&lt;user&gt;/&lt;repo&gt;@&lt;version&gt;</code>.
-              Pin a specific version or use the latest release tag from the plugin's GitHub page.
+              Plugins are discovered live from GitHub — any repository tagged with the
+              <code>prunesh-plugin</code> topic appears here automatically. Install with
+              <code>prunesh plugin install github.com/&lt;owner&gt;/&lt;repo&gt;@&lt;version&gt;</code>.
             </p>
           </header>
           <div class="catalog-body">
             <div class="catalog-ledger">
               <table>
-                <caption>Community plugins. Install from each plugin's GitHub releases.</caption>
+                <caption id="catalog-caption">Loading plugins from GitHub…</caption>
                 <thead>
                   <tr>
                     <th scope="col">Plugin</th>
-                    <th scope="col">Command</th>
                     <th scope="col">Description</th>
+                    <th scope="col" class="col-stars">★</th>
                     <th scope="col">Install</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row"><a href="https://github.com/prunesh/prunesh-gh">prunesh/gh</a></th>
-                    <td><code>gh</code></td>
-                    <td>Prunes GitHub CLI output — strips noise from pr list, issue list, run list and similar commands.</td>
-                    <td>
-                      <div class="install" data-install="prunesh plugin install github.com/prunesh/prunesh-gh@v1.0.0">
-                        <code>prunesh plugin install github.com/prunesh/prunesh-gh@v1.0.0</code>
-                        <button class="copy" type="button" aria-label="Copy install command">
-                          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
-                            <rect x="9" y="9" width="11" height="11" />
-                            <path d="M5 15V5a1 1 0 0 1 1-1h9" />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="https://github.com/prunesh/prunesh-date">prunesh/date</a></th>
-                    <td><code>date</code></td>
-                    <td>Normalises <code>date</code> output to a compact ISO-8601 line.</td>
-                    <td>
-                      <div class="install" data-install="prunesh plugin install github.com/prunesh/prunesh-date@v1.0.0">
-                        <code>prunesh plugin install github.com/prunesh/prunesh-date@v1.0.0</code>
-                        <button class="copy" type="button" aria-label="Copy install command">
-                          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
-                            <rect x="9" y="9" width="11" height="11" />
-                            <path d="M5 15V5a1 1 0 0 1 1-1h9" />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="https://github.com/prunesh/prunesh-docker">prunesh/docker</a></th>
-                    <td><code>docker</code></td>
-                    <td>Strips verbose layer output from <code>docker build</code> and <code>docker pull</code>.</td>
-                    <td>
-                      <div class="install" data-install="prunesh plugin install github.com/prunesh/prunesh-docker@v1.0.0">
-                        <code>prunesh plugin install github.com/prunesh/prunesh-docker@v1.0.0</code>
-                        <button class="copy" type="button" aria-label="Copy install command">
-                          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
-                            <rect x="9" y="9" width="11" height="11" />
-                            <path d="M5 15V5a1 1 0 0 1 1-1h9" />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="https://github.com/prunesh/prunesh-kubectl">prunesh/kubectl</a></th>
-                    <td><code>kubectl</code></td>
-                    <td>Prunes <code>kubectl</code> output — truncates wide resource tables and strips managed-fields noise.</td>
-                    <td>
-                      <div class="install" data-install="prunesh plugin install github.com/prunesh/prunesh-kubectl@v1.0.0">
-                        <code>prunesh plugin install github.com/prunesh/prunesh-kubectl@v1.0.0</code>
-                        <button class="copy" type="button" aria-label="Copy install command">
-                          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
-                            <rect x="9" y="9" width="11" height="11" />
-                            <path d="M5 15V5a1 1 0 0 1 1-1h9" />
-                          </svg>
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row"><a href="https://github.com/prunesh/prunesh-pip">prunesh/pip</a></th>
-                    <td><code>pip</code></td>
-                    <td>Strips redundant <code>pip install</code> progress and already-satisfied lines.</td>
-                    <td>
-                      <div class="install" data-install="prunesh plugin install github.com/prunesh/prunesh-pip@v1.0.0">
-                        <code>prunesh plugin install github.com/prunesh/prunesh-pip@v1.0.0</code>
-                        <button class="copy" type="button" aria-label="Copy install command">
-                          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
-                            <rect x="9" y="9" width="11" height="11" />
-                            <path d="M5 15V5a1 1 0 0 1 1-1h9" />
-                          </svg>
-                        </button>
-                      </div>
+                <tbody id="catalog-tbody">
+                  <tr class="catalog-loading">
+                    <td colspan="4">
+                      <span class="loading-dot"></span>
+                      <span class="loading-dot"></span>
+                      <span class="loading-dot"></span>
                     </td>
                   </tr>
                 </tbody>
@@ -204,14 +123,8 @@
                 Pass the Go module path and a release tag. prunesh downloads the matching
                 platform binary and validates the contract before registering it.
               </p>
-              <div class="install install-inline" data-install="prunesh plugin install github.com/prunesh/prunesh-gh@v1.0.0">
-                <code>prunesh plugin install github.com/prunesh/prunesh-gh@v1.0.0</code>
-                <button class="copy" type="button" aria-label="Copy install command">
-                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6">
-                    <rect x="9" y="9" width="11" height="11" />
-                    <path d="M5 15V5a1 1 0 0 1 1-1h9" />
-                  </svg>
-                </button>
+              <div class="install install-inline" data-install="prunesh plugin install github.com/&lt;owner&gt;/&lt;plugin&gt;@&lt;version&gt;">
+                <code>prunesh plugin install github.com/&lt;owner&gt;/&lt;plugin&gt;@&lt;version&gt;</code>
               </div>
             </article>
             <article>
@@ -231,16 +144,16 @@
           </p>
         </section>
 
-        <section class="start" id="get-started" aria-labelledby="start-title">
-          <div class="start-inner">
-            <h2 id="start-title">Need prunesh first?</h2>
+        <section class="publish" id="publish" aria-labelledby="publish-title">
+          <div class="publish-inner">
+            <h2 id="publish-title">Publish a plugin</h2>
             <p class="lede">
-              Install the binary, run <code>prunesh init</code> at the project root,
-              then install any plugin from this catalog.
+              Built a plugin? Tag your repository with the <code>prunesh-plugin</code>
+              GitHub topic and it will appear in this catalog automatically.
             </p>
             <div class="cta">
-              <a class="btn btn-primary" href="https://prunesh.github.io/prunesh#install">Install prunesh</a>
-              <a class="btn btn-ghost" href="https://github.com/prunesh/prunesh#readme">Documentation</a>
+              <a class="btn btn-primary" href="https://github.com/prunesh/prunesh#writing-a-plugin">Authoring guide</a>
+              <a class="btn btn-ghost" href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics">Add a GitHub topic</a>
             </div>
           </div>
         </section>
@@ -275,6 +188,76 @@
           /* clipboard blocked */
         }
       });
+
+      function escapeHtml(str) {
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      async function initCatalog() {
+        const tbody = document.getElementById('catalog-tbody');
+        const caption = document.getElementById('catalog-caption');
+
+        try {
+          const res = await fetch(
+            'https://api.github.com/search/repositories?q=topic:prunesh-plugin&sort=stars&order=desc&per_page=30',
+            {
+              headers: {
+                Accept: 'application/vnd.github+json',
+                'X-GitHub-Api-Version': '2022-11-28',
+              },
+            }
+          );
+
+          if (!res.ok) throw new Error(`${res.status}`);
+
+          const { items, total_count } = await res.json();
+
+          caption.textContent = `${total_count} plugin${total_count !== 1 ? 's' : ''} tagged prunesh-plugin on GitHub.`;
+
+          if (!items.length) {
+            tbody.innerHTML =
+              '<tr><td colspan="4" class="catalog-empty">No plugins yet. <a href="https://github.com/prunesh/prunesh#writing-a-plugin">Publish the first one.</a></td></tr>';
+            return;
+          }
+
+          tbody.innerHTML = items
+            .map((repo) => {
+              const install = `prunesh plugin install github.com/${repo.full_name}@`;
+              const desc = repo.description
+                ? escapeHtml(repo.description)
+                : '<span class="no-desc">—</span>';
+              const stars = repo.stargazers_count.toLocaleString();
+              return `
+              <tr>
+                <th scope="row"><a href="${repo.html_url}">${escapeHtml(repo.full_name)}</a></th>
+                <td>${desc}</td>
+                <td class="col-stars">${stars}</td>
+                <td>
+                  <div class="install-row">
+                    <div class="install" data-install="${install}">
+                      <code>github.com/${escapeHtml(repo.full_name)}@&lt;version&gt;</code>
+                      <button class="copy" type="button" aria-label="Copy install path">${copyIcon}</button>
+                    </div>
+                    <a class="releases-link" href="${repo.html_url}/releases" target="_blank" rel="noopener">releases&nbsp;↗</a>
+                  </div>
+                </td>
+              </tr>`;
+            })
+            .join('');
+        } catch (err) {
+          caption.textContent = 'Could not load plugins from GitHub.';
+          tbody.innerHTML = `<tr><td colspan="4" class="catalog-error">
+            Failed to reach the GitHub API.
+            <a href="https://github.com/search?q=topic%3Aprunesh-plugin&type=repositories" target="_blank" rel="noopener">Search on GitHub ↗</a>
+          </td></tr>`;
+        }
+      }
+
+      initCatalog();
     </script>
 
     <style>
@@ -353,6 +336,7 @@
         border: 1px solid var(--ink-rule);
       }
 
+      /* ── Nav ── */
       .nav {
         display: flex;
         align-items: center;
@@ -402,6 +386,7 @@
         text-underline-offset: 4px;
       }
 
+      /* ── Hero ── */
       .hero {
         padding: 4.5rem 3rem 3.5rem;
         border-bottom: 1px solid var(--ink-rule);
@@ -491,11 +476,12 @@
         background: var(--ink-paper-press);
       }
 
+      /* ── Install widget ── */
       .install {
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        border: 1px solid var(--ink-rule);
+        border: 1px solid var(--ink-rule-soft);
         padding: 0.5rem 0.55rem 0.5rem 0.9rem;
         font-family: var(--ink-mono);
         font-size: 0.82rem;
@@ -541,6 +527,7 @@
         padding: 0 0.2rem;
       }
 
+      /* ── Block header ── */
       .block-head {
         max-width: 44rem;
         margin: 0 auto 2.4rem;
@@ -562,6 +549,7 @@
         color: var(--ink-2);
       }
 
+      /* ── Catalog ── */
       .catalog,
       .howto {
         padding: 4rem 2.5rem 3.5rem;
@@ -600,11 +588,18 @@
         vertical-align: middle;
       }
 
-      .catalog-ledger td:nth-child(3) {
+      .catalog-ledger td:nth-child(2) {
         color: var(--ink-2);
         font-size: 0.9rem;
-        max-width: 28ch;
+        max-width: 30ch;
         line-height: 1.45;
+      }
+
+      .catalog-ledger .col-stars {
+        text-align: right;
+        white-space: nowrap;
+        color: var(--ink-2);
+        font-size: 0.88rem;
       }
 
       .catalog-ledger thead th {
@@ -631,10 +626,70 @@
         text-underline-offset: 3px;
       }
 
-      .catalog-ledger .install {
-        font-size: 0.75rem;
+      /* Install row in table */
+      .install-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        align-items: flex-start;
       }
 
+      .catalog-ledger .install {
+        font-size: 0.72rem;
+      }
+
+      .releases-link {
+        font-family: var(--ink-mono);
+        font-size: 0.72rem;
+        color: var(--ink-2);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+      }
+
+      .releases-link:hover {
+        color: var(--ink);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      /* Catalog states */
+      .catalog-loading td,
+      .catalog-empty td,
+      .catalog-error td {
+        text-align: center;
+        padding: 3rem 1rem;
+        color: var(--ink-2);
+        font-size: 0.95rem;
+      }
+
+      .catalog-error a,
+      .catalog-empty a {
+        color: var(--ink);
+        text-underline-offset: 3px;
+      }
+
+      .no-desc {
+        color: var(--ink-3);
+      }
+
+      .loading-dot {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: var(--ink-3);
+        margin: 0 3px;
+        animation: dot-blink 1.2s infinite;
+      }
+
+      .loading-dot:nth-child(2) { animation-delay: 0.2s; }
+      .loading-dot:nth-child(3) { animation-delay: 0.4s; }
+
+      @keyframes dot-blink {
+        0%, 80%, 100% { opacity: 0.25; }
+        40% { opacity: 1; }
+      }
+
+      /* ── How to install ── */
       .howto-steps {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -686,17 +741,19 @@
         text-underline-offset: 3px;
       }
 
-      .start {
+      /* ── Publish ── */
+      .publish {
         padding: 4.5rem 3rem 3.5rem;
         text-align: center;
+        border-bottom: 1px solid var(--ink-rule);
       }
 
-      .start-inner {
+      .publish-inner {
         max-width: 700px;
         margin: 0 auto;
       }
 
-      .start h2 {
+      .publish h2 {
         margin: 0 0 1rem;
         font-size: clamp(2rem, 4.5vw, 3.2rem);
         font-weight: 800;
@@ -704,6 +761,11 @@
         line-height: 0.98;
       }
 
+      .publish .lede {
+        margin-bottom: 1.6rem;
+      }
+
+      /* ── Footer ── */
       .foot {
         display: flex;
         align-items: center;
@@ -734,6 +796,7 @@
         text-underline-offset: 3px;
       }
 
+      /* ── Animations ── */
       @media (prefers-reduced-motion: no-preference) {
         .hero-copy > * {
           opacity: 0;
@@ -746,13 +809,13 @@
         .hero-copy > *:nth-child(3) { animation-delay: 0.2s; }
         .hero-copy > *:nth-child(4) { animation-delay: 0.28s; }
         .hero-copy > *:nth-child(5) { animation-delay: 0.36s; }
-        .hero-copy > *:nth-child(6) { animation-delay: 0.44s; }
 
         @keyframes ink-in {
           to { opacity: 1; transform: none; filter: blur(0); }
         }
       }
 
+      /* ── Responsive ── */
       @media (max-width: 860px) {
         .nav {
           padding: 1rem 1.25rem;
@@ -766,7 +829,7 @@
         .hero,
         .catalog,
         .howto,
-        .start {
+        .publish {
           padding-left: 1.25rem;
           padding-right: 1.25rem;
         }
